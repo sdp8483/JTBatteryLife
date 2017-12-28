@@ -6,6 +6,7 @@ Created on Dec 28, 2017
 import struct
 import numpy as np
 import pandas as pd
+from datetime import datetime
 
 ''' Define data types based off convention used in documentation from Dataq '''
 UI = "<H" # unsigned integer, little endian
