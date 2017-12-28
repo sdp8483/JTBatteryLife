@@ -3,10 +3,7 @@ Created on Dec 5, 2017
 
 @author: samper
 
-Convert windaq files (.wdq extension) to Python freindly hd5f store file as pandas dataframe
-    
-Code based on http://www.dataq.com/resources/pdfs/misc/ff.pdf provided by Dataq, code and comments will refer to conventions from this file 
-and python library https://www.socsci.ru.nl/wilberth/python/wdq.py that does not appear to support the .wdq files created by WINDAQ/PRO+
+convert WDQ file to h5 file for use with python
 '''
 from datetime import datetime
 start_of_processing = datetime.now()
