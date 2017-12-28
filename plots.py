@@ -11,19 +11,19 @@ import matplotlib.pyplot as plt
 df = pd.read_hdf("BatteryTest_Rayovac_01.h5", 'df')
 
 df['Hrs'] = df.index / (60.0 * 60.0)
-df['CurrentA'] = df['CurrrentmA'] / 1000.0
-df['PowerW'] = df['CurrentA'] * df['VoltageV']
-df['PowermW'] = df['PowerW'] * 1000.0
+df['Current_A'] = df['Current_mA'] / 1000.0
+df['Power_W'] = df['Current_A'] * df['Voltage_V']
+df['Power_mW'] = df['Power_W'] * 1000.0
 
 dT = (df.index[-1] - df.index[0]) / (df.index.size - 1)
 
 # need even number of datapoits so
 if ((df.index.size % 2) > 0):
-    mean_mW = np.mean(df['PowermW'].iloc[0:-1].values.reshape(-1,2), axis=1)
-    mean_mA = np.mean(df['CurrrentmA'].iloc[0:-1].values.reshape(-1,2), axis=1)
+    mean_mW = np.mean(df['Power_mW'].iloc[0:-1].values.reshape(-1,2), axis=1)
+    mean_mA = np.mean(df['Current_mA'].iloc[0:-1].values.reshape(-1,2), axis=1)
 else:
-    mean_mW = np.mean(df['PowermW'].values.reshape(-1,2), axis=1)
-    mean_mA = np.mean(df['CurrrentmA'].values.reshape(-1,2), axis=1)    
+    mean_mW = np.mean(df['Power_mW'].values.reshape(-1,2), axis=1)
+    mean_mA = np.mean(df['Current_mA'].values.reshape(-1,2), axis=1)    
 
 mWs = np.cumsum(mean_mW * dT)
 mAs = np.cumsum(mean_mA * dT)
