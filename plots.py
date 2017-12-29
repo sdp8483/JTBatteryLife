@@ -114,7 +114,8 @@ plt.suptitle("Rayovac Battery Capacity \n in Multi-LED Joule Thief Circuit")
 plt.savefig("JT_capacity.png")
 plt.close()
 
-print "{} Wh".format(Wh.max())
-print "{} mAh\n".format(mAh.max())
+print "{:.2f} dT".format(dT)
+print "{:.2f} Wh".format(Wh.max())
+print "{:.0f} mAh\n".format(mAh.max())
 
 print datetime.now() - start_of_processing
